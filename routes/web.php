@@ -20,7 +20,7 @@ Route::get('/', function () {
 // Admin Dashboard
 Route::get('/admin/dashboard', function () {
     return view('backend.admin_dashboard');
-})->middleware(['auth'])->name('admin_dashboard');
+})->middleware(['auth:admin'])->name('admin_dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
