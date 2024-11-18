@@ -1,0 +1,19 @@
+Step1: Installed Fresh Laravel and link with Git repository
+
+Step2: Database cofiguration
+
+Step3: Breeze Starter kit installation
+       https://laravel.com/docs/10.x/starter-kits
+       user authentication complete
+
+Step4: Backend Blade Templating
+
+Step5: Multi Auth
+       https://www.fundaofwebit.com/post/multi-guard-authentication-with-breeze-in-laravel-10 
+       a. Migration
+       b. Model
+       c. Controller
+       d. 
+
+
+
