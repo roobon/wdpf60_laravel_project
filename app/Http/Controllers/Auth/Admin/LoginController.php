@@ -30,9 +30,9 @@ class LoginController extends Controller
                 'email' => trans('auth.failed'),
             ]);
         }
-
+       
         $request->session()->regenerate();
-
+        
         return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
     }
 

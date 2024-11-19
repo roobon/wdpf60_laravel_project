@@ -17,6 +17,7 @@ Step5: Multi Auth
        e. Controller 
        f. seeder for admin user
        g. routes for auth:admin guard
+       h. view files
 
 
 
