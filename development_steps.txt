@@ -12,8 +12,11 @@ Step5: Multi Auth
        https://www.fundaofwebit.com/post/multi-guard-authentication-with-breeze-in-laravel-10 
        a. Migration
        b. Model
-       c. Controller
-       d. 
+       c. config/auth.php add guard, provider
+       d. app/providers/RouteServiceProvider
+       e. Controller 
+       f. seeder for admin user
+       g. routes for auth:admin guard
 
 
 
