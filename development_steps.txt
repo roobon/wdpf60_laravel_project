@@ -19,5 +19,14 @@ Step5: Multi Auth
        g. routes for auth:admin guard
        h. view files
 
-
+Step6: CRUD
+       a. Migration
+       b. Model
+       c. Controller
+       php artisan make:model Specialist -mcr
+       --
+       php artisan make:controller backend/SpecialistController --resource --model=Specialist
+       d. route
+       e. view files
+       f. form input, validation
 
