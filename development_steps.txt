@@ -28,5 +28,6 @@ Step6: CRUD
        php artisan make:controller backend/SpecialistController --resource --model=Specialist
        d. route
        e. view files
+       f. list of Data
        f. form input, validation
 
