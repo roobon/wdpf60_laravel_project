@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\SpecialistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,7 @@ Route::middleware('auth:admin')->prefix('admin')->group( function () {
     
     Route::view('/dashboard','backend.admin_dashboard');
     Route::resource('/specialist', SpecialistController::class);
+    Route::resource('/doctor', DoctorController::class);
 
 });
 

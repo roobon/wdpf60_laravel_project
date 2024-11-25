@@ -45,14 +45,15 @@
 				<!-- Title -->
 				<div class="row heading-bg bg-green">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					  <h5 class="txt-light">Export</h5>
+					 
+					<h5 class="txt-light">Export</h5>
 					</div>
 					<!-- Breadcrumb -->
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 					  <ol class="breadcrumb">
 						<li><a href="index.html">Dashboard</a></li>
-						<li><a href="#"><span>table</span></a></li>
-						<li class="active"><span>Export</span></li>
+						<li><a href="#"><span>Doctor</span></a></li>
+						<li class="active"><span>Doctor List</span></li>
 					  </ol>
 					</div>
 					<!-- /Breadcrumb -->
@@ -60,7 +61,70 @@
 				<!-- /Title -->
 				
 				<!-- Row -->
-				{{$specialist->name}}
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+								@if(session('msg'))
+									<div class="alert alert-success">{{session('msg')}}</div>
+								@endif
+									<h6 class="panel-title txt-dark">Export</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div class="table-wrap">
+										<div class="table-responsive">
+											<table id="example" class="table table-hover display  pb-30" >
+												<thead>
+													<tr>
+                                                        <th>ID</th>
+														<th>Doctor Name</th>
+														<th>Specialist</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th>ID</th>
+														<th>Doctor Name</th>
+														<th>Specialist</th>
+														<th style="width: 30%;">Action</th>
+													</tr>
+												</tfoot>
+												<tbody>
+													@foreach($items as $item)
+                                                    <tr>
+														<td>{{$loop->iteration}}</td>
+														<td>{{$item->name}}</td>
+														<td>{{$item->specialist->name}}</td>
+														<td style="width: 30%;">
+															
+														  
+														
+														<form action="{{route('specialist.destroy', $item->id)}}" method="post">
+														<a class="btn btn-success" href="{{route('specialist.show', $item->id)}}">View</a>	
+														<a href="{{route('specialist.edit', $item->id)}}" class="btn btn-info">Edit</a>
+														@csrf
+														@method('DELETE')
+														<button class="btn btn-danger" type="submit" name="submit">Delete</button>
+														</form>
+														
+														</td>
+														
+													</tr>
+													@endforeach
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
 				<!-- /Row -->
 			</div>
 

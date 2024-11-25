@@ -1,4 +1,5 @@
 <div class="fixed-sidebar-left">
+				@section('leftmenu')
 				<ul class="nav navbar-nav side-nav nicescroll-bar">
 					<li>
 						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><i class="icon-picture mr-10"></i>Dashboard <span class="pull-right"><span class="label label-success mr-10">4</span><i class="fa fa-fw fa-angle-down"></i></span></a>
@@ -197,7 +198,11 @@
 					<li>
 						<a href="widgets.html"><i class="icon-drawar mr-10"></i>widgets</a>
 					</li>
+					<li>
+						<a href="{{url('/doctor/content1')}}"><i class="icon-drawar mr-10"></i>Content1</a>
+					</li>
 					
 					
 				</ul>
+				@show
 			</div>
