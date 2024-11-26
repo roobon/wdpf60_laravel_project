@@ -104,9 +104,9 @@
 															
 														  
 														
-														<form action="{{route('specialist.destroy', $item->id)}}" method="post">
-														<a class="btn btn-success" href="{{route('specialist.show', $item->id)}}">View</a>	
-														<a href="{{route('specialist.edit', $item->id)}}" class="btn btn-info">Edit</a>
+														<form action="{{route('doctor.destroy', $item->id)}}" method="post">
+														<a class="btn btn-success" href="{{route('doctor.show', $item->id)}}">View</a>	
+														<a href="{{route('doctor.edit', $item->id)}}" class="btn btn-info">Edit</a>
 														@csrf
 														@method('DELETE')
 														<button class="btn btn-danger" type="submit" name="submit">Delete</button>

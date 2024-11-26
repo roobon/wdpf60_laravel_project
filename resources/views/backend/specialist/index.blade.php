@@ -104,12 +104,12 @@
 															
 														  
 														
-														<form action="{{route('specialist.destroy', $item->id)}}" method="post">
+														<form onSubmit="return confirm('Are you sure to Delete')" action="{{route('specialist.destroy', $item->id)}}" method="post">
 														<a class="btn btn-success" href="{{route('specialist.show', $item->id)}}">View</a>	
 														<a href="{{route('specialist.edit', $item->id)}}" class="btn btn-info">Edit</a>
 														@csrf
 														@method('DELETE')
-														<button class="btn btn-danger" type="submit" name="submit">Delete</button>
+														<button class="btn btn-danger"  type="submit" name="submit">Delete</button>
 														</form>
 														
 														</td>
