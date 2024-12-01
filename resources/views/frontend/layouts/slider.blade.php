@@ -19,7 +19,7 @@
                            <img src="assets/img/slider/bg-shape.png" alt="img">
                         </div>
                         <div class="rr-slider-2-img">
-                           <img src="assets/img/slider/slide-main-2.jpg" alt="img">
+                           <img src="assets/img/slider/medical.jpg" alt="img">
                         </div>
                         <div class="rr-slider-2-line-shap"></div>
                         <div class="container">
