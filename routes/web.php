@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\AppointmentController as BackendAppointmentController;
+use App\Http\Controllers\backend\DepartmentController;
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\SpecialistController;
 use App\Http\Controllers\frontend\AppointmentController;
@@ -8,16 +9,7 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 // Route::get('/', function () {
 //     return view('frontend.home');
@@ -63,6 +55,7 @@ Route::middleware('auth:admin')->prefix('admin')->group( function () {
     Route::resource('/doctor', DoctorController::class);
     Route::resource('/appointment', BackendAppointmentController::class);
     Route::get('/appointment/status/{id}', [BackendAppointmentController::class, 'changeStatus'])->name('changeStatus');
+    Route::resource('/department', DepartmentController::class);
 
 });
 

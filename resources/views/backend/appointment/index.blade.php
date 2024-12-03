@@ -107,7 +107,7 @@
 														<td>{{$item->doctor->name}}</td>
 														<td><a href="{{route('changeStatus', $item->id)}}" class="{{$item->status=='confirmed'? 'btn btn-success':'btn btn-warning'}}">{{$item->status}}</a></td>
 														<td style="width: 30%;">
-																									  
+																		  
 														
 														<form action="{{route('appointment.destroy', $item->id)}}" method="post">
 														<a class="btn btn-success" href="{{route('appointment.show', $item->id)}}">View</a>	

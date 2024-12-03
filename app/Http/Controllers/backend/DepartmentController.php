@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Appointment;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
-class AppointmentController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = Appointment::all();
-        
-        return view('backend.appointment.index', compact('items'));
+        $items = Department::all();
+        return view('backend.department.manageDept', compact('items'));
     }
 
     /**
@@ -31,13 +30,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo $request->name;
+        //echo "Hello World";
+        //dd($request->data);
+        // Department::updateOrCreate(['id' => $request->id],
+        //         ['name' => $request->name, 'details' => $request->details]);        
+   
+        // return response()->json(['success'=>'Department created successfully.']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Appointment $appointment)
+    public function show(Department $department)
     {
         //
     }
@@ -45,7 +50,7 @@ class AppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Appointment $appointment)
+    public function edit(Department $department)
     {
         //
     }
@@ -53,7 +58,7 @@ class AppointmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Appointment $appointment)
+    public function update(Request $request, Department $department)
     {
         //
     }
@@ -61,20 +66,8 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Appointment $appointment)
+    public function destroy(Department $department)
     {
         //
-    }
-
-    public function changeStatus($id){
-        $record = Appointment::find($id);
-
-        $record->status =='pending' ? $record->status ='confirmed': $record->status = 'pending';
-
-        $record->update();
-
-        return redirect()->back();
-
-
     }
 }
