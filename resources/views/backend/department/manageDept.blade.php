@@ -53,10 +53,11 @@
                         "data": mydata
                         },
                 success: function(result) {
-                    alert(result);
+                    alert(result.success);
                     //$("#div1").html(result);
                 }
             });
+            $("responsive-modal").modal('hide');
         })
     });
 </script>
