@@ -41,24 +41,50 @@
     $(document).ready(function() {
         $("#btnAdd").click(function(e) {
             e.preventDefault();
-            let mydata = $("#deptForm").serialize();
+            var mydata = $("#deptForm").serialize();
             //alert(data);
 
             $.ajax({
-                url: "{{route('department.store')}}", 
+                url: "department", 
                 type: "POST",
-                dataType: 'json',
                 data: {
                         "_token": "{{ csrf_token() }}",
                         "data": mydata
                         },
-                success: function(result) {
-                    alert(result.success);
-                    //$("#div1").html(result);
+                success: function(response) {
+                    //alert(result.success);
+                    $("#response").html(response);
+                    $("#deptForm")[0].reset();
+                    $("#responsive-modal").modal('hide');
                 }
             });
             $("responsive-modal").modal('hide');
         })
+        function fetchrecords(){
+            $.ajax({
+                url:'department',
+                type:'GET',
+                success:function(response){
+                    var tr = '';
+                    for(var i=0; i<response.length; i++){
+                       var id=response[i].id;
+                       var name=response[i].name;
+                       var details=response[i].details; 
+
+                       tr += '<tr>';
+                       tr += '<td>' + id + '</td>';  
+                       tr += '<td>' + name + '</td>'; 
+                       tr += '<td>' + details + '</td>'; 
+
+                       tr += '<td><button type="button" class="btn btn-warning">Edit</button></td>'; 
+                       tr += '<td><button type="button" class="btn btn-danger">Delete</button></td>'; 
+                       tr += '</tr>';
+                       $('#department_data').html(tr);
+                    }
+                }
+            })
+        }
+        //fetchrecords();
     });
 </script>
 @endsection
@@ -89,6 +115,7 @@
         <div class="col-sm-12">
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
+                    <div id="response" class="panel">Hello</div>
                     <div class="pull-left">
                         @if(session('msg'))
                         <div class="alert alert-success">{{session('msg')}}</div>
@@ -114,7 +141,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Specialist Name</th>
+                                            <th>Department Name</th>
                                             <th>Details</th>
                                             <th style="width: 30%;">Action</th>
                                         </tr>
@@ -150,6 +177,7 @@
             </div>
         </div>
     </div>
+    https://youtu.be/uToRUKJGr5Q?si=lHfZsNy0Xy_PVpp3
     <!-- /Row -->
 </div>
 <!-- Modal Starts -->
