@@ -31,12 +31,12 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         //echo $request->input('data');
-        parse_str($request->input('data'), $forData);
-        echo $forData['name'];
+        parse_str($request->input('data'), $formData);
+        
         $dept = new Department;
 
-        $dept->name = $forData['name'];
-        $dept->details = $forData['details'];
+        $dept->name = $formData['name'];
+        $dept->details = $formData['details'];
         $dept->save();
         //echo $request->name;
         //echo "Hello World";
@@ -44,6 +44,7 @@ class DepartmentController extends Controller
         //Department::Create(['name' => $request->name, 'details' => $request->details]);        
 
         //return response()->json(['success'=>'Department created successfully.']);
+        echo 'Department created successfully.';
     }
 
     /**

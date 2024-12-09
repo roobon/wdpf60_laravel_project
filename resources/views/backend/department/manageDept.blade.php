@@ -42,7 +42,7 @@
         $("#btnAdd").click(function(e) {
             e.preventDefault();
             var mydata = $("#deptForm").serialize();
-            //alert(data);
+            //alert(mydata);
 
             $.ajax({
                 url: "department", 
@@ -58,7 +58,7 @@
                     $("#responsive-modal").modal('hide');
                 }
             });
-            $("responsive-modal").modal('hide');
+            //$("responsive-modal").modal('hide');
         })
         function fetchrecords(){
             $.ajax({
@@ -115,10 +115,10 @@
         <div class="col-sm-12">
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
-                    <div id="response" class="panel">Hello</div>
+                    <div id="response" class="alert alert-success"></div>
                     <div class="pull-left">
-                        @if(session('msg'))
-                        <div class="alert alert-success">{{session('msg')}}</div>
+                        @if(session('success'))
+                        <div class="alert alert-success">{{session('success')}}</div>
                         @endif
                         <button class="btn btn-success" data-toggle="modal" data-target="#responsive-modal">New Department</button>
 
