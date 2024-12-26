@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
-
+use Inertia\Inertia;
 
 class AppointmentController extends Controller
 {
@@ -24,7 +24,9 @@ class AppointmentController extends Controller
     public function create()
     {
         $doctors = Doctor::all();
-        return view('frontend.appointment', compact('doctors'));
+        // return view('frontend.appointment',  compact('doctors'));
+
+        return Inertia::render('Appointment',  compact('doctors'));
     }
 
     /**
@@ -32,26 +34,29 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'date' => 'required',
             'doctor' => 'required',
+            'date' => 'required',
             'remarks' => 'max:255 | min:10',
         ]);
-        $app = new Appointment;
-        //dd($request);
-        $app->name = $request->name;
-        $app->email = $request->email;
-        $app->phone = $request->phone;
-        $app->date = $request->date;
-        $app->doctor_id = $request->doctor;
-        $app->remarks = $request->remarks;
 
-        //dd($app);
-        $app->save();
-        return redirect()->back()->with('msg', "Successfully Appointment done");
+        $appointment = new Appointment;
+
+        $appointment->name = $request->name;
+        $appointment->email = $request->email;
+        $appointment->phone = $request->phone;
+        $appointment->doctor_id = $request->doctor;
+        $appointment->date = $request->date;
+        $appointment->remarks = $request->remarks;
+
+        $appointment->save();
+
+        return redirect()->back()->with('msg', "Successfully appointment done");
+
     }
 
     /**

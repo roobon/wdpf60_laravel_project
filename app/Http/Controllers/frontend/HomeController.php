@@ -8,19 +8,17 @@ use App\Models\Specialist;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-
-
-
-
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $doctors = Doctor::orderBy('name')->get();
+        $specialists = Specialist::all();
 
-         $doctors = Doctor::orderBy('name')->get();
-         $specialists = Specialist::orderBy('name')->limit(5)->get();
-        
         // return view('frontend.home', compact('doctors', 'specialists'));
+
         return Inertia::render('Home', compact('doctors', 'specialists'));
+
     }
 
     public function about(){
